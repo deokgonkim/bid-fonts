@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RootViewController.h
 //  Fonts
 //
 //  Created by Deokgon Kim on 2018. 6. 2..
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface RootViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
-
