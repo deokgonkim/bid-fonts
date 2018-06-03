@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5E59FA8820C2C1A100AC1F68 /* FontListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E59FA8720C2C1A100AC1F68 /* FontListViewController.m */; };
+		5E59FA8B20C3A5C600AC1F68 /* FontSizesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E59FA8A20C3A5C600AC1F68 /* FontSizesViewController.m */; };
+		5E59FA8E20C3A96900AC1F68 /* FontInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E59FA8D20C3A96900AC1F68 /* FontInfoViewController.m */; };
 		5E8A796B20C2752E00BBDC36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A796A20C2752E00BBDC36 /* AppDelegate.m */; };
 		5E8A797420C2752E00BBDC36 /* Fonts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A797220C2752E00BBDC36 /* Fonts.xcdatamodeld */; };
 		5E8A797620C2753000BBDC36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A797520C2753000BBDC36 /* Assets.xcassets */; };
@@ -40,6 +42,10 @@
 /* Begin PBXFileReference section */
 		5E59FA8620C2C1A100AC1F68 /* FontListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontListViewController.h; sourceTree = "<group>"; };
 		5E59FA8720C2C1A100AC1F68 /* FontListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FontListViewController.m; sourceTree = "<group>"; };
+		5E59FA8920C3A5C600AC1F68 /* FontSizesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontSizesViewController.h; sourceTree = "<group>"; };
+		5E59FA8A20C3A5C600AC1F68 /* FontSizesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FontSizesViewController.m; sourceTree = "<group>"; };
+		5E59FA8C20C3A96900AC1F68 /* FontInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontInfoViewController.h; sourceTree = "<group>"; };
+		5E59FA8D20C3A96900AC1F68 /* FontInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FontInfoViewController.m; sourceTree = "<group>"; };
 		5E8A796620C2752E00BBDC36 /* Fonts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fonts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E8A796920C2752E00BBDC36 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E8A796A20C2752E00BBDC36 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,6 +129,10 @@
 				5E932EAE20C2815800C61455 /* RootViewController.m */,
 				5E59FA8620C2C1A100AC1F68 /* FontListViewController.h */,
 				5E59FA8720C2C1A100AC1F68 /* FontListViewController.m */,
+				5E59FA8920C3A5C600AC1F68 /* FontSizesViewController.h */,
+				5E59FA8A20C3A5C600AC1F68 /* FontSizesViewController.m */,
+				5E59FA8C20C3A96900AC1F68 /* FontInfoViewController.h */,
+				5E59FA8D20C3A96900AC1F68 /* FontInfoViewController.m */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -277,8 +287,10 @@
 			files = (
 				5E8A797420C2752E00BBDC36 /* Fonts.xcdatamodeld in Sources */,
 				5E8A79A220C2770700BBDC36 /* FavoriteList.m in Sources */,
+				5E59FA8B20C3A5C600AC1F68 /* FontSizesViewController.m in Sources */,
 				5E8A797C20C2753000BBDC36 /* main.m in Sources */,
 				5E59FA8820C2C1A100AC1F68 /* FontListViewController.m in Sources */,
+				5E59FA8E20C3A96900AC1F68 /* FontInfoViewController.m in Sources */,
 				5E8A796B20C2752E00BBDC36 /* AppDelegate.m in Sources */,
 				5E932EAF20C2815800C61455 /* RootViewController.m in Sources */,
 			);

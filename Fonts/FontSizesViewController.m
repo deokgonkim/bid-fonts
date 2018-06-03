@@ -1,25 +1,45 @@
 //
-//  FontListViewController.m
+//  FontSizesViewController.m
 //  Fonts
 //
-//  Created by Deokgon Kim on 2018. 6. 2..
+//  Created by Deokgon Kim on 2018. 6. 3..
 //  Copyright © 2018년 Deokgon Kim. All rights reserved.
 //
 
-#import "FontListViewController.h"
-
 #import "FontSizesViewController.h"
-#import "FontInfoViewController.h"
 
-#import "FavoriteList.h"
-
-@interface FontListViewController ()
-
-@property (assign, nonatomic) CGFloat cellPointSize;
+@interface FontSizesViewController ()
 
 @end
 
-@implementation FontListViewController
+@implementation FontSizesViewController
+
+- (NSArray *)pointSizes {
+    static NSArray *pointSizes = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        pointSizes = @[@9,
+                       @10,
+                       @11,
+                       @12,
+                       @13,
+                       @14,
+                       @18,
+                       @24,
+                       @36,
+                       @48,
+                       @64,
+                       @72,
+                       @96,
+                       @144];
+    });
+    return pointSizes;
+}
+
+- (UIFont *)fontForDisplayAtIndexPath:(NSIndexPath *)indexPath {
+    NSNumber *pointSize = self.pointSizes[indexPath.row];
+    return [self.font fontWithSize:pointSize.floatValue];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,25 +49,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    UIFont *preferredTableViewFont = [UIFont preferredFontForTextStyle: UIFontTextStyleHeadline];
-    self.cellPointSize = preferredTableViewFont.pointSize;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    if (self.showsFavorites) {
-        self.fontNames = [FavoriteList sharedInstance].favorites;
-        [self.tableView reloadData];
-    }
-}
-
-- (UIFont *)fontForDisplayAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *fontName = self.fontNames[indexPath.row];
-    return [UIFont fontWithName:fontName size:self.cellPointSize];
 }
 
 #pragma mark - Table view data source
@@ -57,16 +63,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.fontNames count];
+    return [self.pointSizes count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"FontName";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"FontNameAndSize";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier  forIndexPath:indexPath];
     
+    // Configure the cell...
     cell.textLabel.font = [self fontForDisplayAtIndexPath:indexPath];
-    cell.textLabel.text = self.fontNames[indexPath.row];
-    cell.detailTextLabel.text = self.fontNames[indexPath.row];
+    cell.textLabel.text = self.font.fontName;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ point", self.pointSizes[indexPath.row]];
     
     return cell;
 }
@@ -105,25 +112,14 @@
 }
 */
 
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    UIFont *font = [self fontForDisplayAtIndexPath:indexPath];
-    [segue.destinationViewController navigationItem].title = font.fontName;
-    
-    if ([segue.identifier isEqualToString:@"ShowFontSizes"]) {
-        FontSizesViewController *sizesVC = segue.destinationViewController;
-        sizesVC.font = font;
-    } else {
-        FontInfoViewController *infoVC = segue.destinationViewController;
-        infoVC.font = font;
-        infoVC.favorite = [[FavoriteList sharedInstance].favorites containsObject:font.fontName];
-    }
 }
-
+*/
 
 @end

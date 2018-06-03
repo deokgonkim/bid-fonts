@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FontListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface FontListViewController : UITableViewController
 
 @property (copy, nonatomic) NSArray *fontNames;
 @property (assign, nonatomic) BOOL showsFavorites;
