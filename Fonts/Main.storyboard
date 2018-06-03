@@ -197,6 +197,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="UGn-wC-Iyv"/>
                     <connections>
+                        <outlet property="favoriteSwitch" destination="0lg-70-IGH" id="uli-Lu-KVa"/>
                         <outlet property="fontSampleLabel" destination="4pO-I7-Rao" id="j1h-TG-P5p"/>
                         <outlet property="fontSizeLabel" destination="P4S-6E-zpD" id="I74-H0-kd7"/>
                         <outlet property="fontSizeSlider" destination="fQm-P8-Fcn" id="WO1-5z-haf"/>
