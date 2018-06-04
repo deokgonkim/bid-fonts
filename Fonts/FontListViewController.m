@@ -31,6 +31,10 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     UIFont *preferredTableViewFont = [UIFont preferredFontForTextStyle: UIFontTextStyleHeadline];
     self.cellPointSize = preferredTableViewFont.pointSize;
+    
+    if (self.showsFavorites) {
+        self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,31 +75,30 @@
     return cell;
 }
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return self.showsFavorites;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        NSString *favorite = self.fontNames[indexPath.row];
+        [[FavoriteList sharedInstance] removeFavorite:favorite];
+        self.fontNames = [FavoriteList sharedInstance].favorites;
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    [[FavoriteList sharedInstance] moveItemAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
+    self.fontNames = [FavoriteList sharedInstance].favorites;
 }
-*/
 
 /*
 // Override to support conditional rearranging of the table view.
